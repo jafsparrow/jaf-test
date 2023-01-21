@@ -14,7 +14,6 @@ export default component$(() => {
       <div class=" ml-20 mr-48 border  border-t-0">
         <Link href="flower">flower</Link>
         
-      <button onClick$={() => cartCountFromContext.cartCount ++}>increase</button>
         <div class="relative bg-cover">
           <span class="absolute top-0 left-0 ml-6 mt-6 cursor-pointer">
             <svg

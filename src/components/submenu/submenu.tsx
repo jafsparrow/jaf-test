@@ -1,5 +1,6 @@
-import { component$, Signal } from "@builder.io/qwik";
-import { SelectedProductStore } from "~/routes/menu";
+import type { Signal } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
+import type { SelectedProductStore } from "~/routes/menu";
 import type { Product } from "~/types";
 import { MenuItem } from "../menu-item/menuItem";
 

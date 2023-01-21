@@ -1,6 +1,6 @@
 import { isBrowser } from "@builder.io/qwik/build";
 import { AUTH_TOKEN, VENDURE_PUBLIC_URL } from "~/constants";
-import { CategoryViseProducts, Product } from "~/types";
+import type { CategoryViseProducts} from "~/types";
 import { getCookie, setCookie } from ".";
 import { products } from "./seed_data";
 
@@ -34,6 +34,7 @@ const fetchTMDB = async <T = unknown>(
   path: string,
   search: Record<string, string> = {}
 ): Promise<T> => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const params = new URLSearchParams({
     ...search,
     api_key: "1587060c9bf668b37c21a5f5e55bfb90",
@@ -51,12 +52,11 @@ const fetchTMDB = async <T = unknown>(
   return response.json() as T;
 };
 
-type GetTrendingTv = {
-  page: number;
-};
 
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getProducts = (path: string) => {
-	return Promise.resolve(products)
+	return Promise.resolve<CategoryViseProducts>(products)
 
- // return fetchTMDB<CategoryViseProducts>(`products/list`, {});
+ return fetchTMDB<CategoryViseProducts>(`products/list`, {});
 };

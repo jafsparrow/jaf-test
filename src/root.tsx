@@ -125,12 +125,11 @@ export default component$(() => {
       };
     })),
       (cartStore.taxedTotal =
-        cartStore.taxes
-          ?.reduce(
-            (a, b) => a + getTaxedSubTotal(cartStore.total, b),
-            cartStore.total
-          )
-          .toFixed(2) ?? (0 as number));
+        parseInt(cartStore.taxes!.reduce(
+          (a, b) => a + getTaxedSubTotal(cartStore.total, b),
+          cartStore.total
+        )
+        .toFixed(2)));
   });
 
  

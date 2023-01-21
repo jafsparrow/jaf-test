@@ -1,7 +1,7 @@
-import { $, component$, useContext, useTask$ } from "@builder.io/qwik";
-import { Link, useNavigate } from "@builder.io/qwik-city";
+import { $, component$, useContext } from "@builder.io/qwik";
+import { useNavigate } from "@builder.io/qwik-city";
 import { CART_STATE } from "~/constants";
-import { CartItem } from "~/types";
+import type { CartItem } from "~/types";
 
 export const Cart = component$(() => {
   const cart = useContext(CART_STATE);
@@ -103,7 +103,7 @@ export const Cart = component$(() => {
         ))}
 
         <div class="mt-2 bg-white px-4">
-          <textarea class="w-full py-2  font-thin" name="" id="" cols="30" rows="2" placeholder="Would you like to tell us about something"></textarea>
+          <textarea class="w-full py-2  font-thin" name="" id="" placeholder="Would you like to tell us about something"></textarea>
 
         </div>
         <div class="w-full bg-white px-4 pt-2 mt-2">

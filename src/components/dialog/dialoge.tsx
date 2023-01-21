@@ -4,7 +4,8 @@ interface ModalProps {
   onClose: QRL<() => void>;
 }
 
-export const Dialog = component$<ModalProps>((props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const Dialog = component$<ModalProps>((_props) => {
 
 
   return (

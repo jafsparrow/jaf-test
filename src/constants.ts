@@ -1,5 +1,6 @@
-import { createContext, QRL } from '@builder.io/qwik';
-import { AppState, CartItem, CartState, Modifier } from './types';
+import type { QRL } from '@builder.io/qwik';
+import { createContext } from '@builder.io/qwik';
+import type { CartItem, CartState, Modifier } from './types';
 
 
 

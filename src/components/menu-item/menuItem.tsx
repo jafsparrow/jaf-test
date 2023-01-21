@@ -1,15 +1,15 @@
+import type {
+  Signal} from "@builder.io/qwik";
 import {
   $,
   component$,
-  Signal,
   useClientEffect$,
   useContext,
   useSignal,
   useStore,
-  useTask$,
 } from "@builder.io/qwik";
 import { CART_STATE } from "~/constants";
-import { SelectedProductStore } from "~/routes/menu";
+import type { SelectedProductStore } from "~/routes/menu";
 import type { CartItem, Product } from "~/types";
 
 type MenuItemProps = {
@@ -21,7 +21,7 @@ export const MenuItem = component$<MenuItemProps>((props) => {
   const { product, showDialogStore, selectedProductStore } = props;
   const divRef = useSignal<Element>();
   const isInCartStore = useSignal(false);
-  let currentCartCountOfProduct = useSignal(0);
+  const currentCartCountOfProduct = useSignal(0);
   const cart = useContext(CART_STATE);
   const hasModifier = Object.keys(product.modifierGroups![0]).length > 0;
 
@@ -31,32 +31,32 @@ export const MenuItem = component$<MenuItemProps>((props) => {
     modifiers: [],
   });
 
-  const productCountChange$ = $((cartItemKey: string, delta: number) => {
-    if (cart.cartItems[cartItemKey].count + delta <= 0) {
-      const newCartItems: { [key: string]: CartItem } = {};
-      Object.keys(cart.cartItems)
-        .filter((item) => item !== cartItemKey)
-        .map((key) => (newCartItems[key] = cart.cartItems[key]));
+  // const productCountChange$ = $((cartItemKey: string, delta: number) => {
+  //   if (cart.cartItems[cartItemKey].count + delta <= 0) {
+  //     const newCartItems: { [key: string]: CartItem } = {};
+  //     Object.keys(cart.cartItems)
+  //       .filter((item) => item !== cartItemKey)
+  //       .map((key) => (newCartItems[key] = cart.cartItems[key]));
 
-      cart.cartItems = newCartItems;
-    } else {
-      const newCartItems: { [key: string]: CartItem } = {};
-      Object.keys(cart.cartItems).forEach((key) =>
-        key == cartItemKey
-          ? (newCartItems[key] = {
-              ...cart.cartItems[key],
-              count: cart.cartItems[key].count + delta,
-            })
-          : (newCartItems[key] = cart.cartItems[key])
-      );
+  //     cart.cartItems = newCartItems;
+  //   } else {
+  //     const newCartItems: { [key: string]: CartItem } = {};
+  //     Object.keys(cart.cartItems).forEach((key) =>
+  //       key == cartItemKey
+  //         ? (newCartItems[key] = {
+  //             ...cart.cartItems[key],
+  //             count: cart.cartItems[key].count + delta,
+  //           })
+  //         : (newCartItems[key] = cart.cartItems[key])
+  //     );
 
-      cart.cartItems = newCartItems;
-      //   cart.cartItems[cartItemKey].count =  cart.cartItems[cartItemKey].count  +delta;
-    }
-  });
+  //     cart.cartItems = newCartItems;
+  //     //   cart.cartItems[cartItemKey].count =  cart.cartItems[cartItemKey].count  +delta;
+  //   }
+  // });
 
   useClientEffect$(({ track }) => {
-    const tracked = track(() => cart.didStoreUpdate);
+     track(() => cart.didStoreUpdate);
     if (
       Object.values(cart.cartItems).filter(
         (item) => item.product._id == product._id

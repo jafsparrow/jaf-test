@@ -1,8 +1,8 @@
+import type {
+  QRL} from "@builder.io/qwik";
 import {
   $,
   component$,
-  QRL,
-  useClientEffect$,
   useContext,
   useSignal,
   useStore,
@@ -33,7 +33,7 @@ export const AddToCart = component$<AddCartCompProps>((props) => {
   const selectedCartTotal = useSignal(0);
 
   useTask$(({ track }) => {
-    const tracked = track(() => selectedModifiers.hasChanged || cartItemState.count);
+     track(() => selectedModifiers.hasChanged || cartItemState.count);
 
     selectedCartTotal.value = cartItemState.count * (productStore.selectedProduct!.price +
     parseInt( Object.values(selectedModifiers.modifiers).reduce(
@@ -43,14 +43,14 @@ export const AddToCart = component$<AddCartCompProps>((props) => {
       
   });
 
-  const handleCartCountButton = $((event: any) => {
-    if (event.target.id == "addBtn") {
-      cartItemState.count = cartItemState.count + 1;
-    } else {
-      if (cartItemState.count <= 0) return;
-      cartItemState.count = cartItemState.count - 1;
-    }
-  });
+  // const handleCartCountButton = $((event: any) => {
+  //   if (event.target.id == "addBtn") {
+  //     cartItemState.count = cartItemState.count + 1;
+  //   } else {
+  //     if (cartItemState.count <= 0) return;
+  //     cartItemState.count = cartItemState.count - 1;
+  //   }
+  // });
 
   const addToCart = $(() => {
     return cartState.addToCart(

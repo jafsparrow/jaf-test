@@ -1,9 +1,9 @@
-import { QRL, useContext } from "@builder.io/qwik";
+import type { QRL} from "@builder.io/qwik";
+import { useContext } from "@builder.io/qwik";
 import { $, useSignal, useStore } from "@builder.io/qwik";
 import { component$, Resource, useResource$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import { AddToCart } from "~/components/add-to-cart/add-to-cart";
-import { Dialog } from "~/components/dialog/dialoge";
 import { SubMenu } from "~/components/submenu/submenu";
 import { CART_STATE } from "~/constants";
 import type { CategoryViseProducts, Product } from "~/types";
@@ -22,11 +22,18 @@ export default component$(() => {
     selectedProduct: null,
   });
   const productsResources = useResource$<CategoryViseProducts>(async () => {
+  try {
     const products = await getProducts("products/list");
+   
     // console.log('getttting resouce done', products)
-    console.log("show dialog", showDialog.value);
+    console.log("show dialog", products);
     // console.log("selectedProduct", selectedProductStore);
     return products;
+  } catch(error) {
+    console.log(error)
+    return {}
+  }
+ 
   });
 
   const onDialogClose$ = $(() => {

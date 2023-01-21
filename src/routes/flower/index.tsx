@@ -24,7 +24,6 @@ export default component$(() => {
   return (
     <>
 
-      <button onClick$={() => cartCountFromContext.cartCount ++}>increase</button>
       <input
         type="range"
         value={state.number}
