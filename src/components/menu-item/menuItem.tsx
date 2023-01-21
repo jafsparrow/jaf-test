@@ -143,11 +143,11 @@ export const MenuItem = component$<MenuItemProps>((props) => {
         </div>
         <div class=" w-28 h-28 bg-red-200  shrink-0 relative mx-2 mb-2 rounded-lg">
           <img src="https://picsum.photos/200" alt="" class="rounded-lg" />
-          <div class=" absolute bottom-0 w-full bg-black/70 p-1 rounded-lg ">
+          <div class=" absolute bottom-0 w-full bg-black/70 p-1 rounded-lg  ">
             {isInCartStore.value && !hasModifier ? (
-              <div class=" w-full h-6 flex flex-row justify-between text-white text-xs font-bold">
+              <div class=" w-full h-6  flex flex-row justify-between text-white text-xs font-bold">
                 <button
-                  class="w-6 h-6 bg-red-800/70 font-bold text-lg flex justify-center"
+                  class="px-2 bg-black rounded font-bold"
                   onClick$={() => cart.updateItemCount(cart, product._id, -1)}
                 >
                   -
@@ -156,7 +156,7 @@ export const MenuItem = component$<MenuItemProps>((props) => {
                   {currentCartCountOfProduct.value}
                 </div>
                 <button
-                  class="w-6 bg-green-800/70 font-bold text-lg"
+                  class="px-2 bg-black rounded font-bold "
                   onClick$={() => cart.updateItemCount(cart, product._id, 1)}
                 >
                   +
