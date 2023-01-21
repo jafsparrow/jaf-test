@@ -1,7 +1,6 @@
-import { component$, useContext, useResource$ } from "@builder.io/qwik";
+import { component$, useResource$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Link } from "@builder.io/qwik-city";
-import { APP_STATE } from "~/constants";
 
 export default component$(() => {
   useResource$(async () => {
@@ -10,7 +9,6 @@ export default component$(() => {
   });
 
 
-  const cartCountFromContext = useContext(APP_STATE)
   return (
     <div class="container  mx-auto bg-gray-800  w-full h-48">
       <div class=" ml-20 mr-48 border  border-t-0">

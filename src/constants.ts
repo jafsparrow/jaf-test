@@ -3,7 +3,6 @@ import { AppState, CartItem, CartState, Modifier } from './types';
 
 
 
-export const APP_STATE = createContext<AppState>('app_state');
 
 export const CART_STATE = createContext<CartStoreState>('cart_state');
 

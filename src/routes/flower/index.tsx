@@ -1,11 +1,9 @@
-import { component$, useClientEffect$, useContext, useStore, useStylesScoped$ } from '@builder.io/qwik';
-import { DocumentHead, useContent, useLocation } from '@builder.io/qwik-city';
-import { APP_STATE } from '../layout';
+import { component$, useClientEffect$, useStore, useStylesScoped$ } from '@builder.io/qwik';
+import { DocumentHead, useLocation } from '@builder.io/qwik-city';
 import styles from './flower.css?inline';
 
 export default component$(() => {
 
-  const cartCountFromContext = useContext(APP_STATE);
 
   useStylesScoped$(styles);
   const loc = useLocation();

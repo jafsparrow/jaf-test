@@ -47,7 +47,7 @@ export default component$(() => {
             <>
               <div class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 px-4 py-4">
                 <div class="font-bold text-2xl text-white">
-                  Zatar Resto Cafe
+                  Jafar's Resto Cafe
                 </div>
                 <div class="font-thin text-sm text-white ">
                   Where men get together like real heroes
