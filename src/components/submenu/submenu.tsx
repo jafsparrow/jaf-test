@@ -20,7 +20,7 @@ export const SubMenu = component$<SubMenuProps>((subMenu) => {
   return (
     <>
       <div class="w-full bg-white mt-2 ">
-        <div class="pl-4 py-2 text-lg font-normal  ">{title}</div>
+        <div class="pl-4 py-2 text-xl font-normal">{title}</div>
         <div class=" flex flex-col gap-1  sm:gap-0  sm:flex-row sm:flex-wrap w-full">
           {products.map((product) => {
          
