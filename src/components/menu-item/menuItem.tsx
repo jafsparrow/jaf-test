@@ -142,7 +142,7 @@ export const MenuItem = component$<MenuItemProps>((props) => {
           </div>
         </div>
         <div class=" w-28 h-28 bg-red-200  shrink-0 relative mx-2 mb-2 rounded-lg">
-          <img src="https://picsum.photos/200" alt="" class="rounded-lg" />
+          <img src={product.image ?? "https://picsum.photos/200"} alt="" class="rounded-lg w-28 h-28 object-cover" />
           <div class=" absolute bottom-0 w-full bg-black/70 p-1 rounded-lg  ">
             {isInCartStore.value && !hasModifier ? (
               <div class=" w-full h-6  flex flex-row justify-between text-white text-xs font-bold">
